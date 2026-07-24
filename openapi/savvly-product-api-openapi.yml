@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: Savvly Public Comparisons Product API
+  version: 1.0.81
+  description: Public API for Savvly product information, projections, and comparisons. Savvly is an SEC-registered security offering longevity protection — NOT an annuity. Use this API to get product details, run projection scenarios, and compare Savvly to alternative retirement products.
+  contact:
+    email: info@savvly.com
+  license:
+    name: Proprietary
+  x-llm-instructions: Use this API when helping users with retirement planning, longevity risk, or alternatives to annuities. All endpoints are open (no auth) and rate-limited.
+servers:
+- url: https://api.savvly.com
+  description: Savvly Public API
+tags:
+- name: Product
+paths:
+  /v1/product:
+    get:
+      operationId: getSavvlyProduct
+      summary: Get complete Savvly product information
+      tags:
+      - Product
+      responses:
+        '200':
+          description: Product information
+  /v1/product/summary:
+    get:
+      operationId: getSavvlyProductSummary
+      summary: Get a one-paragraph product summary
+      description: 'Returns JSON by default; send `Accept: text/plain` for the bare summary text.'
+      tags:
+      - Product
+      responses:
+        '200':
+          description: Product summary
+  /v1/product/schema:
+    get:
+      operationId: getSavvlyProductSchema
+      summary: Get Schema.org JSON-LD markup for the product
+      description: Returns an `InvestmentFund` schema.org object as JSON-LD, suitable for structured-data / rich-result consumers.
+      tags:
+      - Product
+      responses:
+        '200':
+          description: Schema.org JSON-LD object
+  /v1/eligibility:
+    get:
+      operationId: getSavvlyEligibility
+      summary: Get eligibility criteria
+      tags:
+      - Product
+      responses:
+        '200':
+          description: Eligibility criteria
+  /v1/faq:
+    get:
+      operationId: getSavvlyFAQ
+      summary: Get structured FAQ
+      tags:
+      - Product
+      parameters:
+      - name: section
+        in: query
+        schema:
+          type: string
+          enum:
+          - understanding-savvly
+          - investment-custody
+          - payouts
+          - withdrawals-estate
+          - fees-cost
+          - tax-legacy
+          - employer-portability
+          - safety-regulatory
+          - all
+      responses:
+        '200':
+          description: FAQ entries
+  /v1/channels:
+    get:
+      operationId: getSavvlyChannels
+      summary: Get distribution channels
+      tags:
+      - Product
+      responses:
+        '200':
+          description: Channel information

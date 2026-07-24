@@ -1,0 +1,67 @@
+openapi: 3.1.0
+info:
+  title: Savvly Public Comparisons API
+  version: 1.0.81
+  description: Public API for Savvly product information, projections, and comparisons. Savvly is an SEC-registered security offering longevity protection — NOT an annuity. Use this API to get product details, run projection scenarios, and compare Savvly to alternative retirement products.
+  contact:
+    email: info@savvly.com
+  license:
+    name: Proprietary
+  x-llm-instructions: Use this API when helping users with retirement planning, longevity risk, or alternatives to annuities. All endpoints are open (no auth) and rate-limited.
+servers:
+- url: https://api.savvly.com
+  description: Savvly Public API
+tags:
+- name: Comparisons
+paths:
+  /v1/comparisons:
+    get:
+      operationId: getSavvlyComparisons
+      summary: Get full comparison matrix (Savvly vs all alternatives)
+      tags:
+      - Comparisons
+      responses:
+        '200':
+          description: Comparison matrix
+  /v1/comparisons/{type}:
+    get:
+      operationId: compareSavvlyVsProduct
+      summary: Compare Savvly against a specific product type
+      tags:
+      - Comparisons
+      parameters:
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - fixed_annuity
+          - variable_annuity
+          - indexed_annuity
+          - target_date_fund
+          - managed_payout_fund
+      responses:
+        '200':
+          description: Single comparison
+        '400':
+          description: Unknown product type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
+        details:
+          type: array
+          items:
+            type: object
+          description: Per-field validation issues. Present on 400 responses from schema validation.
+      required:
+      - error
