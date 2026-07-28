@@ -1,0 +1,16 @@
+{
+  "name": "Savvly",
+  "description": "Explore Savvly MCP: retirement projections, eligibility, comparisons, and FAQs for an SEC-registered fund that pairs full market upside with later-life longevity payouts.",
+  "url": "https://savvly.com",
+  "capabilities": {
+    "mcp": "https://api.savvly.com/mcp",
+    "openapi": "https://api.savvly.com/openapi.json",
+    "plugin": "https://savvly.com/.well-known/ai-plugin.json"
+  },
+  "categories": [
+    "finance",
+    "retirement",
+    "investment",
+    "longevity"
+  ]
+}
