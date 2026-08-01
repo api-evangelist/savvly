@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://api.savvly.com",
+      "service-desc": [
+        {
+          "href": "https://api.savvly.com/openapi.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://api.savvly.com/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://api.savvly.com/health",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/savvly-openapi-original.json, well-known/savvly-api-catalog.json
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: openapi field is 3.1.0
+- id: rfc9727-api-catalog
+  conforms: true
+  evidence: /.well-known/api-catalog returns a linkset (service-desc/service-doc/status)
+- id: openai-plugin-manifest
+  conforms: true
+  evidence: /.well-known/ai-plugin.json present (schema_version v1)
+- id: mcp
+  conforms: true
+  evidence: published MCP server at api.savvly.com/mcp (streamable-http), github.com/Savvly/savvly-mcp
+- id: schema-org-jsonld
+  conforms: true
+  evidence: getSavvlyProductSchema returns Schema.org JSON-LD markup
+- id: oauth2
+  conforms: false
+  evidence: no securitySchemes; API is open and rate-limited
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors use a custom {error, details} JSON envelope, not application/problem+json
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404

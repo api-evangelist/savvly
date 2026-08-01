@@ -1,0 +1,18 @@
+{
+  "provider": "savvly",
+  "sources": [
+    "savvly-comparisons-api-openapi.yml",
+    "savvly-product-api-openapi.yml",
+    "savvly-projections-api-openapi.yml"
+  ],
+  "outputs": [
+    "savvly-comparisons-api-openapi.yml",
+    "savvly-product-api-openapi.yml",
+    "savvly-projections-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

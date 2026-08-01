@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/savvly-openapi-original.json
+note: >-
+  Savvly's Public API is read-only and informational — it exposes product facts,
+  comparisons, and projection calculations rather than persisted CRUD entities.
+  There are no resource IDs or foreign-key references, so relationships[] is empty;
+  entities below are the conceptual response objects returned by each endpoint.
+entities:
+- name: Product
+  returned_by: [getSavvlyProduct, getSavvlyProductSummary, getSavvlyProductSchema]
+  description: The Savvly Longevity Benefit product (SEC-registered security, not an annuity).
+- name: Eligibility
+  returned_by: [getSavvlyEligibility]
+  description: Eligibility criteria for participating.
+- name: FAQ
+  returned_by: [getSavvlyFAQ]
+  description: Structured frequently-asked-questions.
+- name: Channel
+  returned_by: [getSavvlyChannels]
+  description: Distribution channels (advisors, brokers, HR/benefits, direct).
+- name: Comparison
+  returned_by: [getSavvlyComparisons, compareSavvlyVsProduct]
+  description: Comparison of Savvly against alternative retirement products.
+- name: Projection
+  returned_by: [projectLumpsumReturns, projectMonthlyReturns, projectRetirementWithSavvly, projectGrowthChart]
+  request_schemas: [LumpsumRequest, MonthlyRequest, RetirementRequest, GrowthChartRequest]
+  response_schemas: [ProjectionResponse, RetirementResponse]
+  description: Modeled return/payout projections at milestone ages 80/85/90/95.
+relationships: []

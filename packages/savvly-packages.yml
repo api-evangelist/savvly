@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+source: npm registry, PyPI, NuGet, github.com/Savvly/savvly-mcp
+note: >-
+  All published packages are distributions of the first-party Savvly MCP server
+  (github.com/Savvly/savvly-mcp, Apache-2.0), which wraps the Savvly Public API.
+  Version 1.0.81 matches the OpenAPI info.version, confirming first-party release.
+packages:
+- language: javascript
+  registry: npm
+  name: "@savvly/mcp-server"
+  version: 1.0.81
+  url: https://www.npmjs.com/package/@savvly/mcp-server
+  install: npx @savvly/mcp-server
+  repository: https://github.com/Savvly/savvly-mcp
+  official: true
+- language: python
+  registry: pypi
+  name: savvly-mcp-server
+  url: https://pypi.org/project/savvly-mcp-server/
+  install: uvx savvly-mcp-server
+  repository: https://github.com/Savvly/savvly-mcp
+  official: true
+- language: csharp
+  registry: nuget
+  name: Savvly.McpServer
+  version: 1.0.81
+  url: https://www.nuget.org/packages/Savvly.McpServer
+  install: dnx Savvly.McpServer
+  repository: https://github.com/Savvly/savvly-mcp
+  official: true
+- language: docker
+  registry: ghcr
+  name: ghcr.io/savvly/savvly-mcp-server
+  url: https://github.com/Savvly/savvly-mcp/pkgs/container/savvly-mcp-server
+  install: docker run -i --rm ghcr.io/savvly/savvly-mcp-server
+  repository: https://github.com/Savvly/savvly-mcp
+  official: true

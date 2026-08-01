@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/savvly-openapi-original.json, llms/savvly-llms.txt
+authentication:
+  style: none
+  note: All endpoints are open (no auth) and rate-limited. See openapi info.x-llm-instructions.
+idempotency:
+  supported: false
+  note: Every operation is a read-only GET; there is no idempotency-key contract.
+pagination:
+  supported: false
+  note: All responses are single documents/matrices; no list pagination.
+versioning:
+  style: uri-path
+  current: v1
+request_tracing:
+  request_id_header: null
+error_envelope:
+  media_type: application/json
+  shape: "{ error: string, details?: object[] }"
+  ref: errors/savvly-problem-types.yml
+rate_limiting:
+  documented: true
+  note: Docs state endpoints are rate-limited; no numeric headers documented in the spec.
+content_negotiation:
+  media_type: application/json
+cross_links:
+  errors: errors/savvly-problem-types.yml
+  lifecycle: lifecycle/savvly-lifecycle.yml
+  authentication: null

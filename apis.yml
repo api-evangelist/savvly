@@ -14,7 +14,31 @@ created: '2026-07-17'
 modified: '2026-07-17'
 tags:
 - Company
-apis: []
+apis:
+- aid: savvly:savvly-comparisons-api
+  name: Savvly Comparisons API
+  description: The Comparisons API from Savvly — 2 operation(s) for comparisons.
+  tags:
+  - Comparisons
+  properties:
+  - type: OpenAPI
+    url: openapi/savvly-comparisons-api-openapi.yml
+- aid: savvly:savvly-product-api
+  name: Savvly Product API
+  description: The Product API from Savvly — 6 operation(s) for product.
+  tags:
+  - Product
+  properties:
+  - type: OpenAPI
+    url: openapi/savvly-product-api-openapi.yml
+- aid: savvly:savvly-projections-api
+  name: Savvly Projections API
+  description: The Projections API from Savvly — 4 operation(s) for projections.
+  tags:
+  - Projections
+  properties:
+  - type: OpenAPI
+    url: openapi/savvly-projections-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

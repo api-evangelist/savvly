@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/savvly-openapi-original.json
+format: custom
+envelope:
+  media_type: application/json
+  schema: ErrorResponse
+  fields:
+    error: Human-readable error message (required).
+    details: Array of per-field validation issues; present on 400 schema-validation errors.
+note: >-
+  Savvly does not use RFC 9457 application/problem+json; errors use a simple
+  {error, details} envelope. All endpoints are open GET operations, so 401/403
+  are not modeled. Only projection and comparison endpoints declare 4xx/5xx.
+problems:
+- status: 400
+  title: Invalid request (input validation failed)
+  meaning: One or more query parameters failed schema validation (range, type, or required).
+  remediation: Correct the flagged parameters; inspect the details[] array for per-field issues.
+  source_operations:
+  - openapi/savvly-openapi-original.json#compareSavvlyVsProduct
+  - openapi/savvly-openapi-original.json#projectLumpsumReturns
+  - openapi/savvly-openapi-original.json#projectMonthlyReturns
+  - openapi/savvly-openapi-original.json#projectRetirementWithSavvly
+  - openapi/savvly-openapi-original.json#projectGrowthChart
+- status: 502
+  title: Upstream projection service error
+  meaning: The upstream projection/calculation service returned an error or was unreachable.
+  remediation: Retry with backoff; if persistent, contact info@savvly.com.
+  source_operations:
+  - openapi/savvly-openapi-original.json#projectLumpsumReturns
+  - openapi/savvly-openapi-original.json#projectMonthlyReturns
+  - openapi/savvly-openapi-original.json#projectRetirementWithSavvly
+  - openapi/savvly-openapi-original.json#projectGrowthChart

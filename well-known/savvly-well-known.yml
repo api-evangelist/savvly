@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of /.well-known/ on api.savvly.com and www.savvly.com
+host: https://api.savvly.com
+documents:
+- path: /.well-known/api-catalog
+  status: 200
+  file: savvly-api-catalog.json
+  note: RFC 9727 linkset — service-desc (OpenAPI), service-doc (llms.txt), status (health)
+- path: /.well-known/ai-plugin.json
+  status: 200
+  file: savvly-ai-plugin.json
+  note: OpenAI plugin manifest — auth none, points at openapi.json
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+other_hosts:
+- host: https://www.savvly.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404

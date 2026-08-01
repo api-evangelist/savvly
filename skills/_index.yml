@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/savvly-openapi-original.json
+skills:
+- file: savvly-project-retirement.md
+  name: Project a retirement scenario with Savvly
+  api: openapi/savvly-openapi-original.json
+  operations: [projectRetirementWithSavvly, projectLumpsumReturns, projectMonthlyReturns, projectGrowthChart]
+- file: savvly-compare-and-explain.md
+  name: Compare Savvly and explain the product
+  api: openapi/savvly-openapi-original.json
+  operations: [getSavvlyProduct, getSavvlyProductSummary, getSavvlyEligibility, getSavvlyFAQ, getSavvlyChannels, getSavvlyComparisons, compareSavvlyVsProduct]

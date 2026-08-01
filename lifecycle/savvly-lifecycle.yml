@@ -1,0 +1,18 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/savvly-openapi-original.json, well-known/savvly-api-catalog.json
+versioning:
+  scheme: uri-path
+  current: v1
+  api_version: 1.0.81
+  note: Paths are prefixed /v1/; the OpenAPI info.version (1.0.81) tracks the release.
+status:
+  health_endpoint: https://api.savvly.com/health
+  source: well-known/savvly-api-catalog.json status link
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation policy or Sunset/Deprecation header support found.
+sla:
+  url: null
+deprecated_operations: []

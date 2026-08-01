@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Savvly Public API
+  version: 1.0.0
+extends: openapi/savvly-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-rating: 4
+    x-apievangelist-notes: >-
+      Open, read-only projection/comparison API for the Savvly Longevity Benefit.
+      Ships OpenAPI 3.1, a published MCP server, llms.txt, ai-plugin.json, and an
+      RFC 9727 api-catalog — a strong agent-native surface. No auth (rate-limited).
+- target: $.info
+  update:
+    x-artifact-index:
+      mcp: mcp/savvly-mcp.yml
+      packages: packages/savvly-packages.yml
+      well_known: well-known/savvly-well-known.yml
+      errors: errors/savvly-problem-types.yml
+      conventions: conventions/savvly-conventions.yml
+      lifecycle: lifecycle/savvly-lifecycle.yml
+      conformance: conformance/savvly-conformance.yml
+      data_model: data-model/savvly-data-model.yml
+      agentic_access: agentic-access/savvly-agentic-access.yml

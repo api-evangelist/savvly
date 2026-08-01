@@ -1,0 +1,55 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://github.com/Savvly/savvly-mcp
+license: Apache-2.0
+server:
+  name: savvly
+  transport: streamable-http
+  url: https://api.savvly.com/mcp
+  description: >-
+    First-party Savvly MCP server exposing the Savvly Public API (product data,
+    projections, comparisons, eligibility, FAQ) to AI agents. No authentication;
+    rate-limited. Also distributed as npm @savvly/mcp-server, PyPI
+    savvly-mcp-server, NuGet Savvly.McpServer, and Docker
+    ghcr.io/savvly/savvly-mcp-server (see packages/savvly-packages.yml).
+install:
+  remote: https://api.savvly.com/mcp
+  npm: npx @savvly/mcp-server
+  pypi: uvx savvly-mcp-server
+  nuget: dnx Savvly.McpServer
+  docker: docker run -i --rm ghcr.io/savvly/savvly-mcp-server
+tools:
+- name: get_savvly_product
+  description: Get complete Savvly product information
+  source_operation: openapi/savvly-openapi-original.json#getSavvlyProduct
+- name: get_savvly_product_summary
+  description: Get a one-paragraph product summary
+  source_operation: openapi/savvly-openapi-original.json#getSavvlyProductSummary
+- name: get_savvly_comparisons
+  description: Get full comparison matrix (Savvly vs all alternatives)
+  source_operation: openapi/savvly-openapi-original.json#getSavvlyComparisons
+- name: compare_savvly_vs_product
+  description: Compare Savvly against a specific product type
+  source_operation: openapi/savvly-openapi-original.json#compareSavvlyVsProduct
+- name: project_lumpsum_returns
+  description: Project lump-sum investment returns at each milestone age
+  source_operation: openapi/savvly-openapi-original.json#projectLumpsumReturns
+- name: project_monthly_returns
+  description: Project monthly contribution returns
+  source_operation: openapi/savvly-openapi-original.json#projectMonthlyReturns
+- name: project_retirement_with_savvly
+  description: Full retirement simulation with Savvly allocation
+  source_operation: openapi/savvly-openapi-original.json#projectRetirementWithSavvly
+- name: project_growth_chart
+  description: Growth chart data from age 80 to 100
+  source_operation: openapi/savvly-openapi-original.json#projectGrowthChart
+- name: get_savvly_eligibility
+  description: Get eligibility criteria
+  source_operation: openapi/savvly-openapi-original.json#getSavvlyEligibility
+- name: get_savvly_faq
+  description: Get structured FAQ
+  source_operation: openapi/savvly-openapi-original.json#getSavvlyFAQ
+- name: get_savvly_channels
+  description: Get distribution channels
+  source_operation: openapi/savvly-openapi-original.json#getSavvlyChannels
