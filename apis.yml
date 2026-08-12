@@ -45,6 +45,12 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgentSkill
+  url: skills/savvly-compare-and-explain.md
+- type: MCPServer
+  url: mcp/savvly-mcp.yml
+- type: Overlay
+  url: overlays/savvly-openapi-overlay.yaml
 - type: AgentCard
   url: a2a/savvly-a2a.yml
   name: A2A Agent Card
