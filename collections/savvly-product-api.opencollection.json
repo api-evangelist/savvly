@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Savvly Public Comparisons Product API",
+    "version": "1.0.81"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get complete Savvly product information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/product"
+          },
+          "docs": "Get complete Savvly product information"
+        },
+        {
+          "info": {
+            "name": "Get a one-paragraph product summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/product/summary"
+          },
+          "docs": "Returns JSON by default; send `Accept: text/plain` for the bare summary text."
+        },
+        {
+          "info": {
+            "name": "Get Schema.org JSON-LD markup for the product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/product/schema"
+          },
+          "docs": "Returns an `InvestmentFund` schema.org object as JSON-LD, suitable for structured-data / rich-result consumers."
+        },
+        {
+          "info": {
+            "name": "Get eligibility criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/eligibility"
+          },
+          "docs": "Get eligibility criteria"
+        },
+        {
+          "info": {
+            "name": "Get structured FAQ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/faq",
+            "params": [
+              {
+                "name": "section",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get structured FAQ"
+        },
+        {
+          "info": {
+            "name": "Get distribution channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/channels"
+          },
+          "docs": "Get distribution channels"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

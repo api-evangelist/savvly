@@ -1,0 +1,395 @@
+{
+  "item": [
+    {
+      "id": "433e1c47-fd6a-445c-b927-893bc39536ac",
+      "name": "Product",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6d0e649-d3fe-4f9e-8f3c-d0b7b1908752",
+          "name": "Get complete Savvly product information",
+          "request": {
+            "name": "Get complete Savvly product information",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1024401-6db6-459f-9d24-36ecafa0d741",
+              "name": "Product information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11498ec9-36e1-4806-abc8-b038d1c08d72",
+          "name": "Get a one-paragraph product summary",
+          "request": {
+            "name": "Get a one-paragraph product summary",
+            "description": {
+              "content": "Returns JSON by default; send `Accept: text/plain` for the bare summary text.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0482b8fc-1acb-485c-a26c-fcc13c88ab68",
+              "name": "Product summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f27d8da-0226-446a-8dd5-6460ef48b6b1",
+          "name": "Get Schema.org JSON-LD markup for the product",
+          "request": {
+            "name": "Get Schema.org JSON-LD markup for the product",
+            "description": {
+              "content": "Returns an `InvestmentFund` schema.org object as JSON-LD, suitable for structured-data / rich-result consumers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb8caf0d-041b-4c00-a97a-416b393682e5",
+              "name": "Schema.org JSON-LD object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1ee9545-680f-4aea-ac6b-25bd210efcbf",
+          "name": "Get eligibility criteria",
+          "request": {
+            "name": "Get eligibility criteria",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "eligibility"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "248a0d74-075e-4aa1-ba8a-87a756ca4ac7",
+              "name": "Eligibility criteria",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "eligibility"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e7e71c7-1ce4-47d5-8e6d-dab725d9f51a",
+          "name": "Get structured FAQ",
+          "request": {
+            "name": "Get structured FAQ",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "faq"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "section",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12d19d96-fb8f-47a9-a7ac-e8a23135b1f3",
+              "name": "FAQ entries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "faq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "section",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d283dec-1400-467b-a3a9-bfe737581c62",
+          "name": "Get distribution channels",
+          "request": {
+            "name": "Get distribution channels",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "channels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7218ac69-8d17-4a98-a746-7443a0a6e74e",
+              "name": "Channel information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "channels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.savvly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8bc60bdc-f640-45f5-9f21-cc0acb6f2676",
+    "name": "Savvly Public Comparisons Product API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API for Savvly product information, projections, and comparisons. Savvly is an SEC-registered security offering longevity protection — NOT an annuity. Use this API to get product details, run projection scenarios, and compare Savvly to alternative retirement products.\n\nContact Support:\n Email: info@savvly.com",
+      "type": "text/plain"
+    }
+  }
+}

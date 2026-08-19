@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Savvly Public Comparisons API",
+    "version": "1.0.81"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Comparisons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get full comparison matrix (Savvly vs all alternatives)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/comparisons"
+          },
+          "docs": "Get full comparison matrix (Savvly vs all alternatives)"
+        },
+        {
+          "info": {
+            "name": "Compare Savvly against a specific product type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/comparisons/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Compare Savvly against a specific product type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

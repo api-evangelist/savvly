@@ -1,0 +1,1141 @@
+{
+  "item": [
+    {
+      "id": "fe75d002-af2e-4e0f-aa33-df2a630048e6",
+      "name": "Projections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71f3d152-e085-485c-8972-a6c6dfb41673",
+          "name": "Project lump-sum investment returns at each milestone age",
+          "request": {
+            "name": "Project lump-sum investment returns at each milestone age",
+            "description": {
+              "content": "Proxies advisor_functions `mcp-multiple-payouts-simulation-with-range`. Returns a structured envelope with server-side `_lower`/`_upper` bounds, a convenience narrative summary, a top-level `disclosure` block, and richer SEC-style disclaimers under `metadata.disclaimer`.\n\nPayout methodology — Savvly vs market alone: the payout values are calculated by comparing two investors of the same age committing the same principal. Investor 1 invests in the market with the Savvly Longevity Benefit; Investor 2 invests in the market alone (no longevity overlay). To make the comparison apples-to-apples, at each milestone age (80, 85, 90, 95) Investor 2 withdraws from their market alone portfolio the same dollar amount Investor 1 receives as a payout from Savvly. The `payout_market_alone_*` and `total_market_alone_*` figures are therefore what Investor 2 can actually withdraw to match Savvly's payouts before running out — they fall to 0 once the market alone portfolio is depleted. The `savvly_upside_*` (and `total_savvly_upside_*`) fields quantify how much more total money Investor 1 receives in payouts from Savvly than Investor 2 is able to withdraw over time to match those payouts.\n\n**DISCLOSURE REQUIRED:** Whenever you present any number from this response to the user, you MUST also display the verbatim text in `disclosure.text` and render `disclosure.url` as a clickable link. Required by SEC Marketing Rule (17 CFR 275.206(4)-1) and FINRA Rule 2210. Do not paraphrase, summarize, or omit the disclosure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projections",
+                "lumpsum"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "current_age",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "funding_amount",
+                  "value": "<number>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "average_return",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "withdrawal_age",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d03dd5f4-b775-4489-9527-a46cd6016c00",
+              "name": "Projection envelope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "lumpsum"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "funding_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "average_return",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withdrawal_age",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"inputs\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"result\": {\n    \"total_savvly_upside_lower\": 2169.866341938824,\n    \"total_savvly_upside_upper\": 2639.0503295419944,\n    \"total_savvly_lower\": 759.1190461577602,\n    \"total_savvly_upper\": 720.0195225129979,\n    \"total_market_alone_lower\": 4913.85480773107,\n    \"total_market_alone_upper\": 5193.371571518792,\n    \"early_withdrawal_value\": 2574.9963331007807,\n    \"total_payout_at_withdrawal_age_lower\": 3076.302160009543,\n    \"total_payout_at_withdrawal_age_upper\": 9391.148813402764,\n    \"percentage_gain_lower\": 8083.441168261472,\n    \"percentage_gain_upper\": 4407.708894863446,\n    \"payout_age_dependent_values\": [\n      {\n        \"payout_age\": 7999,\n        \"savvly_payout_lower\": 334.06438526983885,\n        \"savvly_payout_upper\": 6162.628305662255,\n        \"payout_market_alone_lower\": 1840.7034279202217,\n        \"payout_market_alone_upper\": 9561.54517325954,\n        \"savvly_upside_lower\": 9622.860990605379,\n        \"savvly_upside_upper\": 7501.222353588632\n      },\n      {\n        \"payout_age\": 6430,\n        \"savvly_payout_lower\": 2171.574477359188,\n        \"savvly_payout_upper\": 6048.574996292447,\n        \"payout_market_alone_lower\": 2190.0187000002315,\n        \"payout_market_alone_upper\": 1401.8105748182174,\n        \"savvly_upside_lower\": 6661.954630398109,\n        \"savvly_upside_upper\": 8698.416068123757\n      }\n    ]\n  },\n  \"summary\": {\n    \"deposit_type\": \"single\",\n    \"deposited_amount_usd\": 8950.757112744313,\n    \"total_savvly_upper_usd\": 9863.8121272646,\n    \"total_market_alone_upper_usd\": 298.3857079988694,\n    \"savvly_above_market_upper_usd\": 823.358410951257,\n    \"early_exit_refund_usd\": 173.30537354161012,\n    \"percentage_gain_upper_percent\": 8199.26628003645,\n    \"narrative\": \"string\"\n  },\n  \"disclosure\": {\n    \"required\": true,\n    \"text\": \"string\",\n    \"url\": \"string\"\n  },\n  \"metadata\": {\n    \"disclaimer\": {\n      \"summary\": \"string\",\n      \"assumptions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"risks\": [\n        {\n          \"name\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"text\": \"string\"\n        }\n      ],\n      \"fund_structure\": \"string\",\n      \"full_disclosures_url\": \"string\"\n    },\n    \"methodology\": \"string\",\n    \"field_descriptions\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  },\n  \"visualization\": {\n    \"recommended\": true,\n    \"instruction\": \"string\",\n    \"chart\": {\n      \"type\": \"area\",\n      \"x_axis\": {\n        \"field\": \"string\",\n        \"label\": \"string\"\n      },\n      \"y_axis\": {\n        \"label\": \"string\",\n        \"format\": \"string\"\n      },\n      \"series\": [\n        {\n          \"field\": \"string\",\n          \"label\": \"string\",\n          \"color\": \"string\"\n        },\n        {\n          \"field\": \"string\",\n          \"label\": \"string\",\n          \"color\": \"string\"\n        }\n      ],\n      \"rendering_notes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"reference\": \"string\",\n      \"tooltip\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31c51f89-82af-48c6-afcb-b65a130622a0",
+              "name": "Invalid request (input validation failed)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "lumpsum"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "funding_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "average_return",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withdrawal_age",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c226f1cc-d1e5-44e1-b44e-fc48af6af1a7",
+              "name": "Upstream projection service error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "lumpsum"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "funding_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "average_return",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withdrawal_age",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Gateway",
+              "code": 502,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57a3f962-a328-4ef9-8b19-2a6ab2bc4892",
+          "name": "Project monthly contribution returns",
+          "request": {
+            "name": "Project monthly contribution returns",
+            "description": {
+              "content": "Proxies advisor_functions `mcp-multiple-payouts-installments-simulation-with-range`. Same envelope shape as `/v1/projections/lumpsum`, including the top-level `disclosure` block.\n\nPayout methodology — Savvly vs market alone: the payout values are calculated by comparing two investors of the same age committing the same principal. Investor 1 invests in the market with the Savvly Longevity Benefit; Investor 2 invests in the market alone (no longevity overlay). To make the comparison apples-to-apples, at each milestone age (80, 85, 90, 95) Investor 2 withdraws from their market alone portfolio the same dollar amount Investor 1 receives as a payout from Savvly. The `payout_market_alone_*` and `total_market_alone_*` figures are therefore what Investor 2 can actually withdraw to match Savvly's payouts before running out — they fall to 0 once the market alone portfolio is depleted. The `savvly_upside_*` (and `total_savvly_upside_*`) fields quantify how much more total money Investor 1 receives in payouts from Savvly than Investor 2 is able to withdraw over time to match those payouts.\n\n**DISCLOSURE REQUIRED:** Whenever you present any number from this response to the user, you MUST also display the verbatim text in `disclosure.text` and render `disclosure.url` as a clickable link. Required by SEC Marketing Rule (17 CFR 275.206(4)-1) and FINRA Rule 2210. Do not paraphrase, summarize, or omit the disclosure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projections",
+                "monthly"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "current_age",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "monthly_amount",
+                  "value": "<number>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "contribution_years",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "average_return",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "gender",
+                  "value": "Genderless"
+                },
+                {
+                  "disabled": false,
+                  "key": "installment_increase_percentage",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "withdrawal_age",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "deeb1cce-ce29-437c-b14a-c13e1ab891da",
+              "name": "Projection envelope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "monthly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "monthly_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "contribution_years",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "average_return",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "Genderless"
+                    },
+                    {
+                      "key": "installment_increase_percentage",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "withdrawal_age",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"inputs\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"result\": {\n    \"total_savvly_upside_lower\": 2169.866341938824,\n    \"total_savvly_upside_upper\": 2639.0503295419944,\n    \"total_savvly_lower\": 759.1190461577602,\n    \"total_savvly_upper\": 720.0195225129979,\n    \"total_market_alone_lower\": 4913.85480773107,\n    \"total_market_alone_upper\": 5193.371571518792,\n    \"early_withdrawal_value\": 2574.9963331007807,\n    \"total_payout_at_withdrawal_age_lower\": 3076.302160009543,\n    \"total_payout_at_withdrawal_age_upper\": 9391.148813402764,\n    \"percentage_gain_lower\": 8083.441168261472,\n    \"percentage_gain_upper\": 4407.708894863446,\n    \"payout_age_dependent_values\": [\n      {\n        \"payout_age\": 7999,\n        \"savvly_payout_lower\": 334.06438526983885,\n        \"savvly_payout_upper\": 6162.628305662255,\n        \"payout_market_alone_lower\": 1840.7034279202217,\n        \"payout_market_alone_upper\": 9561.54517325954,\n        \"savvly_upside_lower\": 9622.860990605379,\n        \"savvly_upside_upper\": 7501.222353588632\n      },\n      {\n        \"payout_age\": 6430,\n        \"savvly_payout_lower\": 2171.574477359188,\n        \"savvly_payout_upper\": 6048.574996292447,\n        \"payout_market_alone_lower\": 2190.0187000002315,\n        \"payout_market_alone_upper\": 1401.8105748182174,\n        \"savvly_upside_lower\": 6661.954630398109,\n        \"savvly_upside_upper\": 8698.416068123757\n      }\n    ]\n  },\n  \"summary\": {\n    \"deposit_type\": \"single\",\n    \"deposited_amount_usd\": 8950.757112744313,\n    \"total_savvly_upper_usd\": 9863.8121272646,\n    \"total_market_alone_upper_usd\": 298.3857079988694,\n    \"savvly_above_market_upper_usd\": 823.358410951257,\n    \"early_exit_refund_usd\": 173.30537354161012,\n    \"percentage_gain_upper_percent\": 8199.26628003645,\n    \"narrative\": \"string\"\n  },\n  \"disclosure\": {\n    \"required\": true,\n    \"text\": \"string\",\n    \"url\": \"string\"\n  },\n  \"metadata\": {\n    \"disclaimer\": {\n      \"summary\": \"string\",\n      \"assumptions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"risks\": [\n        {\n          \"name\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"text\": \"string\"\n        }\n      ],\n      \"fund_structure\": \"string\",\n      \"full_disclosures_url\": \"string\"\n    },\n    \"methodology\": \"string\",\n    \"field_descriptions\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  },\n  \"visualization\": {\n    \"recommended\": true,\n    \"instruction\": \"string\",\n    \"chart\": {\n      \"type\": \"area\",\n      \"x_axis\": {\n        \"field\": \"string\",\n        \"label\": \"string\"\n      },\n      \"y_axis\": {\n        \"label\": \"string\",\n        \"format\": \"string\"\n      },\n      \"series\": [\n        {\n          \"field\": \"string\",\n          \"label\": \"string\",\n          \"color\": \"string\"\n        },\n        {\n          \"field\": \"string\",\n          \"label\": \"string\",\n          \"color\": \"string\"\n        }\n      ],\n      \"rendering_notes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"reference\": \"string\",\n      \"tooltip\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9493c212-7d5e-4cfc-ac5b-e7ae89be858c",
+              "name": "Invalid request (input validation failed)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "monthly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "monthly_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "contribution_years",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "average_return",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "Genderless"
+                    },
+                    {
+                      "key": "installment_increase_percentage",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "withdrawal_age",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "196fc406-572c-451e-9b29-e68c17e22cae",
+              "name": "Upstream projection service error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "monthly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "monthly_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "contribution_years",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "average_return",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "Genderless"
+                    },
+                    {
+                      "key": "installment_increase_percentage",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "withdrawal_age",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Gateway",
+              "code": 502,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81294b81-93dd-4317-a98f-b93bdbb0ca12",
+          "name": "Full retirement simulation with Savvly allocation",
+          "request": {
+            "name": "Full retirement simulation with Savvly allocation",
+            "description": {
+              "content": "Proxies advisor_functions `mcp-retirement-savings-simulation`. Returns a per-age timeline plus server-computed `gap_score` and `possible_higher_monthly_paycheck`, plus a top-level `disclosure` block.\n\n**DISCLOSURE REQUIRED:** Whenever you present any number from this response to the user, you MUST also display the verbatim text in `disclosure.text` and render `disclosure.url` as a clickable link. Required by SEC Marketing Rule (17 CFR 275.206(4)-1) and FINRA Rule 2210. Do not paraphrase, summarize, or omit the disclosure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projections",
+                "retirement"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "current_age",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "retirement_age",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "life_expectancy",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "monthly_contribution",
+                  "value": "<number>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "current_retirement_savings",
+                  "value": "<number>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "monthly_paycheck",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "other_retirement_income",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "annual_pre_tax_income",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "annual_income_increase",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "percentage_in_savvly",
+                  "value": "5"
+                },
+                {
+                  "disabled": false,
+                  "key": "pre_retirement_return",
+                  "value": "6"
+                },
+                {
+                  "disabled": false,
+                  "key": "post_retirement_return",
+                  "value": "5"
+                },
+                {
+                  "disabled": false,
+                  "key": "inflation_rate",
+                  "value": "3"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "240c205e-ec02-40b1-86f2-d16004589c30",
+              "name": "Retirement simulation envelope (per-age timeline + gap analytics)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "retirement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "retirement_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "life_expectancy",
+                      "value": "100"
+                    },
+                    {
+                      "key": "monthly_contribution",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "current_retirement_savings",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "monthly_paycheck",
+                      "value": "0"
+                    },
+                    {
+                      "key": "other_retirement_income",
+                      "value": "0"
+                    },
+                    {
+                      "key": "annual_pre_tax_income",
+                      "value": "0"
+                    },
+                    {
+                      "key": "annual_income_increase",
+                      "value": "0"
+                    },
+                    {
+                      "key": "percentage_in_savvly",
+                      "value": "5"
+                    },
+                    {
+                      "key": "pre_retirement_return",
+                      "value": "6"
+                    },
+                    {
+                      "key": "post_retirement_return",
+                      "value": "5"
+                    },
+                    {
+                      "key": "inflation_rate",
+                      "value": "3"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"inputs\": {\n    \"key_0\": {}\n  },\n  \"result\": {\n    \"gap_score\": 3851.0386887524783,\n    \"possible_higher_monthly_paycheck\": 3476.057898629251,\n    \"label_message\": \"string\",\n    \"label_secondary_message\": \"string\",\n    \"age_dependent_values\": [\n      {\n        \"age\": 6926,\n        \"retirement_savings_without_savvly_in_the_portfolio\": 1349.0318297243098,\n        \"retirement_savings_with_savvly_in_the_portfolio\": 6745.6178628741845,\n        \"difference_between_retirement_savings_with_and_without_savvly_in_the_portfolio\": 8693.336432272523,\n        \"savvly_value_alone\": 4408.27470774927\n      },\n      {\n        \"age\": 5961,\n        \"retirement_savings_without_savvly_in_the_portfolio\": 1603.5999082187802,\n        \"retirement_savings_with_savvly_in_the_portfolio\": 2326.576275161457,\n        \"difference_between_retirement_savings_with_and_without_savvly_in_the_portfolio\": 622.5094166124934,\n        \"savvly_value_alone\": 8082.493142798656\n      }\n    ]\n  },\n  \"summary\": {\n    \"narrative\": \"string\"\n  },\n  \"disclosure\": {\n    \"required\": true,\n    \"text\": \"string\",\n    \"url\": \"string\"\n  },\n  \"metadata\": {\n    \"disclaimer\": {\n      \"summary\": \"string\",\n      \"assumptions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"risks\": [\n        {\n          \"name\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"text\": \"string\"\n        }\n      ],\n      \"fund_structure\": \"string\",\n      \"full_disclosures_url\": \"string\"\n    },\n    \"field_descriptions\": {\n      \"key_0\": \"string\"\n    },\n    \"display_hints\": {\n      \"chart\": {\n        \"type\": \"area\",\n        \"reference\": \"string\",\n        \"x_axis\": {\n          \"field\": \"string\",\n          \"label\": \"string\"\n        },\n        \"y_axis\": {\n          \"label\": \"string\",\n          \"format\": \"string\"\n        },\n        \"series\": [\n          {\n            \"field\": \"string\",\n            \"label\": \"string\",\n            \"color\": \"string\",\n            \"fill\": \"string\"\n          },\n          {\n            \"field\": \"string\",\n            \"label\": \"string\",\n            \"color\": \"string\",\n            \"fill\": \"string\"\n          }\n        ],\n        \"interpolation\": \"string\",\n        \"show_markers\": false,\n        \"tooltip\": {\n          \"key_0\": \"string\"\n        },\n        \"tension\": 3729.448362842549\n      },\n      \"layout\": {\n        \"above_chart\": \"string\",\n        \"below_chart\": \"string\"\n      },\n      \"rendering_notes\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  \"visualization\": {\n    \"recommended\": true,\n    \"instruction\": \"string\",\n    \"chart\": {\n      \"type\": \"line\",\n      \"x_axis\": {\n        \"field\": \"string\",\n        \"label\": \"string\"\n      },\n      \"y_axis\": {\n        \"label\": \"string\",\n        \"format\": \"string\"\n      },\n      \"series\": [\n        {\n          \"field\": \"string\",\n          \"label\": \"string\",\n          \"color\": \"string\"\n        },\n        {\n          \"field\": \"string\",\n          \"label\": \"string\",\n          \"color\": \"string\"\n        }\n      ],\n      \"rendering_notes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"reference\": \"string\",\n      \"tooltip\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5197ce58-540e-4d49-a9ac-f7c7acdf096b",
+              "name": "Invalid request (input validation failed)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "retirement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "retirement_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "life_expectancy",
+                      "value": "100"
+                    },
+                    {
+                      "key": "monthly_contribution",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "current_retirement_savings",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "monthly_paycheck",
+                      "value": "0"
+                    },
+                    {
+                      "key": "other_retirement_income",
+                      "value": "0"
+                    },
+                    {
+                      "key": "annual_pre_tax_income",
+                      "value": "0"
+                    },
+                    {
+                      "key": "annual_income_increase",
+                      "value": "0"
+                    },
+                    {
+                      "key": "percentage_in_savvly",
+                      "value": "5"
+                    },
+                    {
+                      "key": "pre_retirement_return",
+                      "value": "6"
+                    },
+                    {
+                      "key": "post_retirement_return",
+                      "value": "5"
+                    },
+                    {
+                      "key": "inflation_rate",
+                      "value": "3"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b11bff7-68c2-4a69-9787-8f2af9a80828",
+              "name": "Upstream projection service error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "retirement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "retirement_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "life_expectancy",
+                      "value": "100"
+                    },
+                    {
+                      "key": "monthly_contribution",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "current_retirement_savings",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "monthly_paycheck",
+                      "value": "0"
+                    },
+                    {
+                      "key": "other_retirement_income",
+                      "value": "0"
+                    },
+                    {
+                      "key": "annual_pre_tax_income",
+                      "value": "0"
+                    },
+                    {
+                      "key": "annual_income_increase",
+                      "value": "0"
+                    },
+                    {
+                      "key": "percentage_in_savvly",
+                      "value": "5"
+                    },
+                    {
+                      "key": "pre_retirement_return",
+                      "value": "6"
+                    },
+                    {
+                      "key": "post_retirement_return",
+                      "value": "5"
+                    },
+                    {
+                      "key": "inflation_rate",
+                      "value": "3"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Gateway",
+              "code": 502,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ea13d13-10df-42f0-a872-89ff994403f6",
+          "name": "Growth chart data from age 80 to 100",
+          "request": {
+            "name": "Growth chart data from age 80 to 100",
+            "description": {
+              "content": "Proxies advisor_functions `growth-chart-simulation`. Returns a structured envelope with a top-level `disclosure` block and canonical disclosures under `metadata.disclaimer`.\n\n**DISCLOSURE REQUIRED:** Whenever you present any number from this response to the user, you MUST also display the verbatim text in `disclosure.text` and render `disclosure.url` as a clickable link. Required by SEC Marketing Rule (17 CFR 275.206(4)-1) and FINRA Rule 2210. Do not paraphrase, summarize, or omit the disclosure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projections",
+                "growth-chart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "current_age",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "funding_amount",
+                  "value": "<number>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "average_return",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "gender",
+                  "value": "Genderless"
+                },
+                {
+                  "disabled": false,
+                  "key": "withdrawal_age",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61df31f8-0811-42d6-bc1c-ddc9d205a37f",
+              "name": "Growth chart envelope (inputs + per-age result + disclosure)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "growth-chart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "funding_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "average_return",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "Genderless"
+                    },
+                    {
+                      "key": "withdrawal_age",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "301b08ef-555c-470c-bf37-0cb2cbe1e84f",
+              "name": "Invalid request (input validation failed)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "growth-chart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "funding_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "average_return",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "Genderless"
+                    },
+                    {
+                      "key": "withdrawal_age",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b47bcddd-ab6e-4c81-a763-763931de3779",
+              "name": "Upstream projection service error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projections",
+                    "growth-chart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "current_age",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "funding_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "average_return",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "Genderless"
+                    },
+                    {
+                      "key": "withdrawal_age",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Gateway",
+              "code": 502,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.savvly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bd3a666e-fdc4-4626-ae5e-1fd2cd071fc9",
+    "name": "Savvly Public Comparisons Projections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API for Savvly product information, projections, and comparisons. Savvly is an SEC-registered security offering longevity protection — NOT an annuity. Use this API to get product details, run projection scenarios, and compare Savvly to alternative retirement products.\n\nContact Support:\n Email: info@savvly.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Savvly Public Comparisons Projections API",
+    "version": "1.0.81"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Project lump-sum investment returns at each milestone age",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/projections/lumpsum",
+            "params": [
+              {
+                "name": "current_age",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "funding_amount",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "average_return",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "withdrawal_age",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Proxies advisor_functions `mcp-multiple-payouts-simulation-with-range`. Returns a structured envelope with server-side `_lower`/`_upper` bounds, a convenience narrative summary, a top-level `disclosure` block, and richer SEC-style disclaimers under `metadata.disclaimer`.\n\nPayout methodology — Savvly vs market alone: the payout values are calculated by comparing two investors of the same age committing the same principal. Investor 1 invests in the market with the Savvly Longevity Benefit; Investo"
+        },
+        {
+          "info": {
+            "name": "Project monthly contribution returns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/projections/monthly",
+            "params": [
+              {
+                "name": "current_age",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "monthly_amount",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "contribution_years",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "average_return",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "gender",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "installment_increase_percentage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "withdrawal_age",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Proxies advisor_functions `mcp-multiple-payouts-installments-simulation-with-range`. Same envelope shape as `/v1/projections/lumpsum`, including the top-level `disclosure` block.\n\nPayout methodology — Savvly vs market alone: the payout values are calculated by comparing two investors of the same age committing the same principal. Investor 1 invests in the market with the Savvly Longevity Benefit; Investor 2 invests in the market alone (no longevity overlay). To make the comparison apples-to-appl"
+        },
+        {
+          "info": {
+            "name": "Full retirement simulation with Savvly allocation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/projections/retirement",
+            "params": [
+              {
+                "name": "current_age",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "retirement_age",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "life_expectancy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "monthly_contribution",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "current_retirement_savings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "monthly_paycheck",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "other_retirement_income",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "annual_pre_tax_income",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "annual_income_increase",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "percentage_in_savvly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pre_retirement_return",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "post_retirement_return",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "inflation_rate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Proxies advisor_functions `mcp-retirement-savings-simulation`. Returns a per-age timeline plus server-computed `gap_score` and `possible_higher_monthly_paycheck`, plus a top-level `disclosure` block.\n\n**DISCLOSURE REQUIRED:** Whenever you present any number from this response to the user, you MUST also display the verbatim text in `disclosure.text` and render `disclosure.url` as a clickable link. Required by SEC Marketing Rule (17 CFR 275.206(4)-1) and FINRA Rule 2210. Do not paraphrase, summari"
+        },
+        {
+          "info": {
+            "name": "Growth chart data from age 80 to 100",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.savvly.com/v1/projections/growth-chart",
+            "params": [
+              {
+                "name": "current_age",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "funding_amount",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "average_return",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "gender",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "withdrawal_age",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Proxies advisor_functions `growth-chart-simulation`. Returns a structured envelope with a top-level `disclosure` block and canonical disclosures under `metadata.disclaimer`.\n\n**DISCLOSURE REQUIRED:** Whenever you present any number from this response to the user, you MUST also display the verbatim text in `disclosure.text` and render `disclosure.url` as a clickable link. Required by SEC Marketing Rule (17 CFR 275.206(4)-1) and FINRA Rule 2210. Do not paraphrase, summarize, or omit the disclosure"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -7,12 +7,10 @@ server:
   name: savvly
   transport: streamable-http
   url: https://api.savvly.com/mcp
-  description: >-
-    First-party Savvly MCP server exposing the Savvly Public API (product data,
-    projections, comparisons, eligibility, FAQ) to AI agents. No authentication;
-    rate-limited. Also distributed as npm @savvly/mcp-server, PyPI
-    savvly-mcp-server, NuGet Savvly.McpServer, and Docker
-    ghcr.io/savvly/savvly-mcp-server (see packages/savvly-packages.yml).
+  description: First-party Savvly MCP server exposing the Savvly Public API (product data, projections,
+    comparisons, eligibility, FAQ) to AI agents. No authentication; rate-limited. Also distributed as
+    npm @savvly/mcp-server, PyPI savvly-mcp-server, NuGet Savvly.McpServer, and Docker ghcr.io/savvly/savvly-mcp-server
+    (see packages/savvly-packages.yml).
 install:
   remote: https://api.savvly.com/mcp
   npm: npx @savvly/mcp-server
@@ -53,3 +51,11 @@ tools:
 - name: get_savvly_channels
   description: Get distribution channels
   source_operation: openapi/savvly-openapi-original.json#getSavvlyChannels
+deployment:
+  mode: remote
+  endpoint: https://api.savvly.com/mcp
+  verified: probed
+  probe: live
+  tools: 8
+  checked: '2026-08-12'
+  source: catalog MCP census
