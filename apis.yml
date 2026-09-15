@@ -80,3 +80,5 @@ common:
   description: Agent Card served at /.well-known/agent.json (flavored against A2A 1.0.0).
 - type: Website
   url: https://savvly.com/
+- type: Support
+  url: mailto:hello@savvly.com
