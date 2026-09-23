@@ -1,9 +1,7 @@
 {
   "provider": "savvly",
   "sources": [
-    "savvly-comparisons-api-openapi.yml",
-    "savvly-product-api-openapi.yml",
-    "savvly-projections-api-openapi.yml"
+    "_original/savvly-openapi-original.json"
   ],
   "outputs": [
     "savvly-comparisons-api-openapi.yml",
@@ -13,6 +11,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "savvly-openapi-original.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "savvly-openapi-original.json: declared missing tag: Comparisons",
+    "savvly-openapi-original.json: declared missing tag: Product",
+    "savvly-openapi-original.json: declared missing tag: Projections",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "savvly-comparisons-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "savvly-product-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "savvly-projections-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

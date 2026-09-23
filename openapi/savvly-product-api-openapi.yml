@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Savvly Public Comparisons Product API
+  title: Savvly Public Product API
   version: 1.0.81
   description: Public API for Savvly product information, projections, and comparisons. Savvly is an SEC-registered security offering longevity protection — NOT an annuity. Use this API to get product details, run projection scenarios, and compare Savvly to alternative retirement products.
   contact:
