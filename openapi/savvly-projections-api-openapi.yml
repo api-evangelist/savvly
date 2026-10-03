@@ -688,19 +688,6 @@ components:
       - disclosure
       - metadata
       additionalProperties: false
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Human-readable error message.
-        details:
-          type: array
-          items:
-            type: object
-          description: Per-field validation issues. Present on 400 responses from schema validation.
-      required:
-      - error
     ProjectionResponse:
       type: object
       properties:
@@ -1014,3 +1001,16 @@ components:
       - disclosure
       - metadata
       additionalProperties: false
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
+        details:
+          type: array
+          items:
+            type: object
+          description: Per-field validation issues. Present on 400 responses from schema validation.
+      required:
+      - error
