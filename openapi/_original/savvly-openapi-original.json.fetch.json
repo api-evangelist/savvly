@@ -1,0 +1,12 @@
+{
+ "url": "https://api.savvly.com/openapi.json",
+ "requested_url": "https://api.savvly.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 40977,
+ "sha256": "652c6f653bcbc49d4f68934f275655c502949d2092b777dd15556731de1446f2",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
